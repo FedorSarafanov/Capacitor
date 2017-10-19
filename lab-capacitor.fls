@@ -455,6 +455,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/esint/esint10.tfm
+INPUT img/chem.png
+INPUT ./img/chem.png
+INPUT ./img/chem.png
 INPUT /home/lab/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm
 INPUT /home/lab/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm
 INPUT lab-capacitor.aux

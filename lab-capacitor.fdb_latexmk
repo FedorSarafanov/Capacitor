@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1508434045 "lab-capacitor.tex" "lab-capacitor.pdf" "lab-capacitor" 1508434054
+["pdflatex"] 1508434730 "lab-capacitor.tex" "lab-capacitor.pdf" "lab-capacitor" 1508434731
   "/home/lab/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1481486362 3308 eee81981029f67083258db36df06e523 ""
   "/home/lab/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1482165341 3304 6a543c07045572737981351171e0505e ""
   "/home/lab/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1481464230 3312 d199be9bd555944e2403193d58a0256a ""
@@ -285,9 +285,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1501615481 32585 d82bbcf7626b7842c87671687479e852 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1507458674 2249863 4167f86e1bc615259ae150a760e3750c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1507458661 7735972 1d2da459cdf2f462a2425149800a93d7 ""
-  "lab-capacitor.aux" 1508434046 1020 9c0d770ad9c6121708642305eaadbcc7 ""
-  "lab-capacitor.tex" 1508434045 8098 fe4e2e6542bc06697c2edf5b225411bd ""
-  "lab-capacitor.toc" 1508434046 742 b6de331556f4962de2898a067928d763 ""
+  "img/chem.png" 1508434523 30864 e1c9131d097d37bef349047d6b3daa9d ""
+  "lab-capacitor.aux" 1508434731 2137 5f5d823c9555bcea9f900510dee6aaad ""
+  "lab-capacitor.tex" 1508434729 10992 7479100873ea0c39c24b1082497efe2a ""
+  "lab-capacitor.toc" 1508434731 1291 128f06bc6fb70f2965b13168aa0868e3 ""
   "templates/head-img.tex" 1506435449 6591 73331bc76948b91eaa517daea0425aca ""
   "templates/head.tex" 1490807314 348 d17843e5f738f0b1a31863bf40bded39 ""
   "templates/lab_colontitle.tex" 1490635390 757 b18717132224d261835d543a5fad4be9 ""
@@ -296,6 +297,6 @@
   "templates/tikz_line-annotation.tex" 1505047504 1055 343119ea6577bdab3b32d354268c02ce ""
   (generated)
   "lab-capacitor.toc"
+  "lab-capacitor.log"
   "lab-capacitor.aux"
   "lab-capacitor.pdf"
-  "lab-capacitor.log"

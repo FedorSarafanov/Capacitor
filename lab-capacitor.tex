@@ -20,8 +20,8 @@
 % \setlength{\epigraphrule}{0pt}
 
 
-	    % \pgfkeys{/pgf/number format/.cd,
-		% fixed,  1000 sep={\,}}
+	    \pgfkeys{/pgf/number format/.cd,
+		fixed,  1000 sep={\,}}
 		\pgfplotstableset{
 			% multicolumn names, % allows to have multicolumn names
 			% col sep=tab, % the seperator in our .csv file
@@ -200,10 +200,7 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 \section{Результаты эксперимента}
 \subsection{Зависимость времени заряда от $R_1C_1$} % (fold)
 % \label{ssub:измерение_при_безинерционном_наблюдении}
-
-
-
-    
+   
 \begin{table}[H]
 	    % \caption{Экспериментальный подбор разбро}
 	    \label{tab:diod}
@@ -264,7 +261,9 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 		    ticklabel style={font=\normalsize,fill=white},    
 		    axis lines=middle, 	
 		    xlabel style={below right, xshift=1em, font=\normalsize},
-		    ylabel style={above left, font=\normalsize},		    		
+		    ylabel style={above left, font=\normalsize},		
+   			x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+    		y label style={at={(axis description cs:-0.1,.5)},rotate=90,anchor=south},		        		
 			% legend style={
 			% at={(rel axis cs:0,1)},
 			% anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
@@ -284,7 +283,18 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 	\label{fig:figure1}
 \end{figure}
 
-
+\newpage
+Расчетная формула (условие баланса)
+\begin{equation}
+	C_2=C_1\frac{R_1}{R_2}
+\end{equation}
+Откуда
+\begin{equation}
+	\Delta C_2=
+		\frac{R_1}{R_2}\Delta C_1+
+		\frac{C_1}{R_2}\Delta R_1+
+		\frac{C_1R_1}{R^2_2}\Delta R_2
+\end{equation}
 
 \subsubsection{Измерение при сигнале типа <<меандр>>}
 
@@ -311,10 +321,14 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 			columns/c2/.style={
 				column name={$C_2$, мкФ},
 			},			
-			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2}},	 	
+			columns/dc2/.style={
+				column name={$\Delta C_2$, мкФ},
+			},						
+			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2},{dc2}},	 	
 		]{data/nur.dat}
 \end{table}
 
+\newpage
 
 \subsubsection{Измерение при постоянном напряжении $U=15$ В}
 \begin{table}[H]
@@ -340,10 +354,68 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 			columns/c2/.style={
 				column name={$C_2$, мкФ},
 			},			
-			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2}},	 	
+			columns/dc2/.style={
+				column name={$\Delta C_2$, мкФ},
+			},						
+			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2},{dc2}},	 	
 		]{data/nur15.dat}
 \end{table}
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1.4]
+		    \begin{axis}[
+			grid=both,
+			% scale=2.35,
+			% xmode=log,
+			grid style={line width=.1pt, draw=gray!10},
+			major grid style={line width=.2pt,draw=gray!50},
+			% axis lines=middle,
+			minor tick num=5,
+			% xmin=0, 
+			% xmax=11,
+			% ymin=0,
+			% ymax=5,
+			xlabel={$R_1$, кОм},
+			ylabel={$\Delta C_2$, мкФ},
+			tick style={very thick},
+		    % scale=0.5,
+		    grid=both,
+		    grid style={line width=1pt, draw=black!20},
+		    major grid style={line width=.5pt,draw=black!90},
+		    minor y tick num=4,
+		    minor x tick num=4,   
+		    xtick distance=1000,
+		    ytick distance=0.25,
+		    % ymax = 1.8,
+		    % xmin = 100,
+		    % ymin = 0,
+		    % xmax = 40,
+		    ticklabel style={font=\normalsize,fill=white},    
+		    axis lines=middle, 	
+		    xlabel style={below right, xshift=1em, font=\normalsize},
+		    ylabel style={above left, font=\normalsize},		
+   			x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+    		y label style={at={(axis description cs:-0.2,.5)},rotate=90,anchor=south},		        		
+			% legend style={
+			% at={(rel axis cs:0,1)},
+			% anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
+		]
+	        \addplot +[mark=*, mark size=4pt, ] table [x=r1, y=dc2] {data/nur15.dat};
+	        % \addlegendentry{$U_c=-7$ В}
+
+
+	        % \addplot [samples=100, domain=0:52] {0.05215*e^(-(x-27)^2/2/(7.5)^2)};
+	        % \addlegendentry{$\sigma_k=7.5$}
+
+	        % \addplot [samples=100, domain=0:52, dashdotdotted] {0.05215*e^(-(x-27)^2/2/(7.649)^2)};
+	        % \addlegendentry{$\sigma_k=7.649$}
+		    \end{axis}
+		\end{tikzpicture}	
+	\caption{Погрешность определения емкости при $U=15$ В}
+	\label{fig:figure1}
+\end{figure}
+\newpage
 \subsubsection{Измерение при постоянном напряжении $U=45$ В}
 \begin{table}[H]
 	    % \caption{Экспериментальный подбор разбро}
@@ -368,9 +440,78 @@ $J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha 
 			columns/c2/.style={
 				column name={$C_2$, мкФ},
 			},			
-			columns={r1, r2l, r2r, dr, rsr, c2},	 	
+			columns/dc2/.style={
+				column name={$\Delta C_2$, мкФ},
+			},						
+			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2},{dc2}},	  	
 		]{data/nur45.dat}
 \end{table}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1.4]
+		    \begin{axis}[
+			grid=both,
+			% scale=2.35,
+			% xmode=log,
+			grid style={line width=.1pt, draw=gray!10},
+			major grid style={line width=.2pt,draw=gray!50},
+			% axis lines=middle,
+			minor tick num=5,
+			% xmin=0, 
+			% xmax=11,
+			% ymin=0,
+			% ymax=5,
+			xlabel={$R_1$, кОм},
+			ylabel={$\Delta C_2$, мкФ},
+			tick style={very thick},
+		    % scale=0.5,
+		    grid=both,
+		    grid style={line width=1pt, draw=black!20},
+		    major grid style={line width=.5pt,draw=black!90},
+		    minor y tick num=4,
+		    minor x tick num=4,   
+		    xtick distance=1000,
+		    ytick distance=0.1,
+		    % ymax = 1.8,
+		    % xmin = 100,
+		    % ymin = 0,
+		    % xmax = 40,
+		    ticklabel style={font=\normalsize,fill=white},    
+		    axis lines=middle, 	
+		    xlabel style={below right, xshift=1em, font=\normalsize},
+		    ylabel style={above left, font=\normalsize},		
+   			x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+    		y label style={at={(axis description cs:-0.2,.5)},rotate=90,anchor=south},		        		
+			% legend style={
+			% at={(rel axis cs:0,1)},
+			% anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
+		]
+	        \addplot +[mark=*, mark size=4pt, ] table [x=r1, y=dc2] {data/nur45.dat};
+	        % \addlegendentry{$U_c=-7$ В}
+
+
+	        % \addplot [samples=100, domain=0:52] {0.05215*e^(-(x-27)^2/2/(7.5)^2)};
+	        % \addlegendentry{$\sigma_k=7.5$}
+
+	        % \addplot [samples=100, domain=0:52, dashdotdotted] {0.05215*e^(-(x-27)^2/2/(7.649)^2)};
+	        % \addlegendentry{$\sigma_k=7.649$}
+		    \end{axis}
+		\end{tikzpicture}	
+	\caption{Погрешность определения емкости при $U=45$ В}
+	\label{fig:figure1}
+\end{figure}
+
+\section{Выводы}
+
+Мы измерили ёмкость неизвестного конденсатора $C_2=6.84\pm 0.06$ мкФ с помощью измерительного моста в двух режимах: инерционном и безинерционном. 
+
+Инерционный способ в нашем эксперименте давал меньшую погрешность, чем баллистический. 
+
+В инерционном способе использовался гальванометр, у которого соотношение $R_G\gg R_2$ не выполнялось, и из-за того что напряжение на измерительном приборе было отличным от нуля (разбаланс моста), что вносило дополнительную погрешность определения $R_2$. 
+
+
+% В безынерционном способе погрешность определения $R_2$ зависит только от ЭДС источника
 
 
 

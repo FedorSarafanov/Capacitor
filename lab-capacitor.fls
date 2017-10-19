@@ -478,6 +478,8 @@ INPUT data/rnu.dat
 INPUT data/rnu.dat
 INPUT data/nur.dat
 INPUT data/nur15.dat
+INPUT data/nur15.dat
+INPUT data/nur45.dat
 INPUT data/nur45.dat
 INPUT lab-capacitor.aux
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc

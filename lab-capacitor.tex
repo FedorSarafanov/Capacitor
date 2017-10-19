@@ -18,6 +18,29 @@
 \input{\source/lab_colontitle.tex}
 \usepackage{epigraph}
 % \setlength{\epigraphrule}{0pt}
+
+
+	    % \pgfkeys{/pgf/number format/.cd,
+		% fixed,  1000 sep={\,}}
+		\pgfplotstableset{
+			% multicolumn names, % allows to have multicolumn names
+			% col sep=tab, % the seperator in our .csv file
+			% precision=2,
+			% fixed zerofill, 										
+			empty cells with={\textbf{--}},
+			every head row/.style={
+			before row={\toprule},
+			after row={
+				\midrule}
+				},
+			every last row/.style={after row=\bottomrule},
+			every row/.style={after row=\midrule}, 				
+			% dec sep align,
+			% dec zerofill
+			% fixed,fixed zerofill,
+			% precision=2
+		}
+
 \begin{document}
 
 \input{\source/lab_title-page.tex} %Титульная страница
@@ -39,6 +62,8 @@
 измерительный  прибор.  При  определенном  соотношении   между   параметрами
 элементов измерительный прибор показывает отсутствие напряжения в  диагонали
 (баланс моста).
+
+
 
 \begin{figure}[H]
 	\centering
@@ -116,8 +141,8 @@ U_x(t) =  \varepsilon \cdot
 \right)
 \end{equation}
 Напряжение $U_G$ на измерительном приборе можно получить из соотношений
+$\phi_1-\phi_2=U_1$; $-(\phi_2-\phi_3)=U_x$.
 
-$\phi_1-\phi_2=U_1$; $-(\phi_2-\phi_3)=U_x$
 Получаем, что
 \begin{equation}
  \phi_1-\phi_3 =U_G(t)=U_1(t)-U_x(t)= \varepsilon \cdot 
@@ -150,147 +175,79 @@ $\phi_1-\phi_2=U_1$; $-(\phi_2-\phi_3)=U_x$
 
 В гальванометре положение рамки фиксируется пружинами специальной формы, по которым к ней подводится измеряемый ток. На рамку действует момент сил Ампера и момент упругих сил пружинок, пропорциональный углу отклонения этой рамки от положения равновесия.
 \begin{equation}
-I \frac{\mathrm{d}\omega_z }{\mathrm{d} t}= I_GNSB- D \cdot \alpha
+J \frac{\mathrm{d}\omega_z }{\mathrm{d} t}= I_GNSB- D \cdot \alpha
 \end{equation}
-I -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha }{\mathrm{d} t}$ -- её угловая скорость вращения.
+$J$ -- момент инерции рамки, $\omega_z=\frac{\mathrm{d}\alpha }{\mathrm{d} t}$ -- её угловая скорость вращения.
 
-Если ток протекает кратковременно, рамка практически не успевает отклониться. В этом случае уравнение (1) легко проинтегрируется:
-
-$ I \mathrm{d} \omega_z =  I_GNSB\mathrm{d} t$ ,  
+Если ток протекает кратковременно, рамка практически не успевает отклониться. В этом случае уравнение  легко проинтегрируется:
 \begin{equation}
-\omega_{z0}=\frac{NSB}{J} \cdot \int I_G dt= \frac{NSB}{I}Q ,
+	J \mathrm{d} \omega_z =  I_GNSB\mathrm{d} t,
+\end{equation}
+\begin{equation}
+\omega_{z0}=\frac{NSB}{J} \cdot \int I_G dt= \frac{NSB}{J}Q ,
 \end{equation} 
   где $ \omega_{z0}$ -- угловая скорость, полученная рамкой, Q -- заряд, прошедший через гальванометр. После прекращения действия сил Ампера рамка, продолжая вращаться, отклоняется на некоторый угол, который можно найти, используя закон сохранения энергии:
   \begin{equation}
-  \frac{I\omega_{z0}^2}{2}= \frac{D\alpha^2_{max}}{2}
+  \frac{J\omega_{z0}^2}{2}= \frac{D\alpha^2_{max}}{2}
    \end{equation}
 Откуда
   \begin{equation}
 \alpha_{max}=\frac{NSB}{\sqrt{JD}}\cdot Q 
   \end{equation}
 
-\end{document}
+Принципиально важно, что отклонение пропорционально заряду, протекшему через гальванометр.
+
+\section{Результаты эксперимента}
+\subsection{Зависимость времени заряда от $R_1C_1$} % (fold)
+% \label{ssub:измерение_при_безинерционном_наблюдении}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\input{\source/lab_title-page.tex} %Титульная страница
-
-\tableofcontents
-\newpage
-
-\section*{Введение} % (fold)
-\addcontentsline{toc}{section}{Введение}
-\label{sec:input}
-
-Целью данной работы является успешная сдача зачета по общефизу
-
-\newpage
-\section{Исследование неоновой лампы}
-\subsection{Снятие ВАХ неоновой лампы}
-
+    
 \begin{table}[H]
-	    \caption{Снятие вольт-амперной характеристики (ВАХ) неоновой лампы}
+	    % \caption{Экспериментальный подбор разбро}
 	    \label{tab:diod}
-	    \pgfkeys{/pgf/number format/.cd,
-		fixed,  1000 sep={\,}}
-\newlength\Colsep
-\setlength\Colsep{10pt}
-\pgfplotstableset{
-	multicolumn names, % allows to have multicolumn names
-	col sep=tab, % the seperator in our .csv file
-	precision=3,
-	% fixed zerofill, 
-	columns/u/.style={
-	column name={$U$, В},
-	},
-	columns/i/.style={
-	column name={$I$, мА},
-	},
-	empty cells with={\textbf{--}},
-	every head row/.style={
-	before row={\toprule},
-	after row={
-		\midrule}
-		},
-	every last row/.style={after row=\bottomrule},
-	every row/.style={after row=\midrule}, 
-	columns={u,i},		
-	dec sep align,
-	% dec zerofill
-	% fixed,fixed zerofill,
-	% precision=2
-	}
-\noindent\begin{minipage}[t][][t]{\textwidth}
-\begin{minipage}[t][][b]{0.2\textwidth}
-	    \pgfplotstabletypeset[
-		% skip rows between index={0}{50},
-		skip rows between index={25}{500},
-	    ]{data/vax.csv}
-\end{minipage}%\hfill
-\begin{minipage}[t][][b]{0.2\textwidth}
-	    \pgfplotstabletypeset[
-			skip rows between index={0}{25},
-			skip rows between index={50}{500},
-	    ]{data/vax.csv}
-\end{minipage}%
-\begin{minipage}[t][][b]{0.2\textwidth}
-	    \pgfplotstabletypeset[
-			skip rows between index={0}{50},
-			skip rows between index={75}{500},
-	    ]{data/vax.csv}
-\end{minipage}%
-\begin{minipage}[t][][b]{0.2\textwidth}
-	    \pgfplotstabletypeset[
-			skip rows between index={0}{75},
-			skip rows between index={100}{500},
-	    ]{data/vax.csv}
-\end{minipage}%
-\begin{minipage}[t][][b]{0.2\textwidth}
-	    \pgfplotstabletypeset[
-			skip rows between index={0}{100},
-			skip rows between index={125}{500},
-	    ]{data/vax.csv}
-\end{minipage}%
-\end{minipage}		
-
+		\centering
+		\pgfplotstabletypeset[
+			columns/r1/.style={
+				column name={$R_1$, кОм},
+			},
+			columns/t/.style={
+				column name={$t/k$, мс},
+			},
+			columns/dt/.style={
+				column name={$\Delta t$, мс},
+			},
+			columns/mn/.style={
+				column name={Множитель $k$},
+			},
+			columns/nu/.style={
+				column name={$\nu$, Гц},
+			},		
+			columns/tt/.style={
+				column name={$t$, мс},
+			},						
+			columns={r1,t,mn,dt,nu,tt},	 	
+		]{data/rnu.dat}
 \end{table}
 
-\begin{figure}[tb]
+\begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=0.95]
+	\begin{tikzpicture}[scale=1.4]
 		    \begin{axis}[
 			grid=both,
-			scale=2.35,
+			% scale=2.35,
 			% xmode=log,
 			grid style={line width=.1pt, draw=gray!10},
 			major grid style={line width=.2pt,draw=gray!50},
 			% axis lines=middle,
 			minor tick num=5,
-			% xmin=1000, 
+			xmin=0, 
 			% xmax=11,
-			% ymin=0,
+			ymin=1,
 			% ymax=5,
-			xlabel={$U$, В},
-			ylabel={$I$, мА},
+			xlabel={$RC$, кОм$\cdot$мкФ},
+			ylabel={$t$, мс},
 			tick style={very thick},
 		    % scale=0.5,
 		    grid=both,
@@ -298,21 +255,21 @@ $ I \mathrm{d} \omega_z =  I_GNSB\mathrm{d} t$ ,
 		    major grid style={line width=.5pt,draw=black!90},
 		    minor y tick num=4,
 		    minor x tick num=4,   
-		    xtick distance=10,
+		    xtick distance=1,
 		    ytick distance=1,
 		    % ymax = 1.8,
-		    xmin = 100,
-		    ymin = 0,
+		    % xmin = 100,
+		    % ymin = 0,
 		    % xmax = 40,
-		    % ticklabel style={font=\tiny,fill=white},    
+		    ticklabel style={font=\normalsize,fill=white},    
 		    axis lines=middle, 	
-		    xlabel style={below right, xshift=1em},
-		    ylabel style={above left},		    		
+		    xlabel style={below right, xshift=1em, font=\normalsize},
+		    ylabel style={above left, font=\normalsize},		    		
 			% legend style={
 			% at={(rel axis cs:0,1)},
 			% anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
 		]
-	        \addplot +[mark=*, mark size=0.1em, ] table [x=u, y=i] {data/vax.csv};
+	        \addplot +[mark=*, mark size=4pt, ] table [x=r1, y=tt] {data/rnu.dat};
 	        % \addlegendentry{$U_c=-7$ В}
 
 
@@ -323,8 +280,98 @@ $ I \mathrm{d} \omega_z =  I_GNSB\mathrm{d} t$ ,
 	        % \addlegendentry{$\sigma_k=7.649$}
 		    \end{axis}
 		\end{tikzpicture}	
-	\caption{Caption here}
+	% \caption{Caption here}
 	\label{fig:figure1}
 \end{figure}
 
 
+
+\subsubsection{Измерение при сигнале типа <<меандр>>}
+
+\begin{table}[H]
+	    % \caption{Экспериментальный подбор разбро}
+	    \label{tab:diod}
+		\centering
+		\pgfplotstabletypeset[
+			columns/r1/.style={
+				column name={$R_1$, Ом},
+			},
+			columns/r2l/.style={
+				column name={$R'_1$, Ом},
+			},
+			columns/r2r/.style={
+				column name={$R''_1$, Ом},
+			},
+			columns/dr/.style={
+				column name={$\Delta R_2$, Ом},
+			},
+			columns/rsr/.style={
+				column name={$\mean{R_2}$, Ом},
+			},
+			columns/c2/.style={
+				column name={$C_2$, мкФ},
+			},			
+			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2}},	 	
+		]{data/nur.dat}
+\end{table}
+
+
+\subsubsection{Измерение при постоянном напряжении $U=15$ В}
+\begin{table}[H]
+	    % \caption{Экспериментальный подбор разбро}
+	    \label{tab:diod}
+		\centering
+		\pgfplotstabletypeset[
+			columns/r1/.style={
+				column name={$R_1$, Ом},
+			},
+			columns/r2l/.style={
+				column name={$R'_1$, Ом},
+			},
+			columns/r2r/.style={
+				column name={$R''_1$, Ом},
+			},
+			columns/dr/.style={
+				column name={$\Delta R_2$, Ом},
+			},
+			columns/rsr/.style={
+				column name={$\mean{R_2}$, Ом},
+			},
+			columns/c2/.style={
+				column name={$C_2$, мкФ},
+			},			
+			columns={{r1}, {r2l}, {r2r}, {dr}, {rsr}, {c2}},	 	
+		]{data/nur15.dat}
+\end{table}
+
+\subsubsection{Измерение при постоянном напряжении $U=45$ В}
+\begin{table}[H]
+	    % \caption{Экспериментальный подбор разбро}
+	    \label{tab:diod}
+		\centering
+		\pgfplotstabletypeset[
+			columns/r1/.style={
+				column name={$R_1$, Ом},
+			},
+			columns/r2l/.style={
+				column name={$R'_1$, Ом},
+			},
+			columns/r2r/.style={
+				column name={$R''_1$, Ом},
+			},
+			columns/dr/.style={
+				column name={$\Delta R_2$, Ом},
+			},
+			columns/rsr/.style={
+				column name={$\mean{R_2}$, Ом},
+			},
+			columns/c2/.style={
+				column name={$C_2$, мкФ},
+			},			
+			columns={r1, r2l, r2r, dr, rsr, c2},	 	
+		]{data/nur45.dat}
+\end{table}
+
+
+
+\end{document}

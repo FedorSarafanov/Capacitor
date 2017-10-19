@@ -1,0 +1,14 @@
+# Fdb version 3
+["pdflatex"] 1506245884 "head-img.tex" "/home/osabio/tex/templates/head-img.pdf" "head-img" 1506245885
+  "/etc/texmf/web2c/texmf.cnf" 1498394236 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/osabio/tex/templates/head-img.aux" 1490466515 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/tikz_line-annotation.tex" 0 -1 0 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1498394576 3875006 bda24b30ee4f4cd8e00777971ce24c30 ""
+  "head-img.tex" 1506245884 5742 42d0c0143f965cef88deacdca85f8ce7 ""
+  (generated)
+  "head-img.pdf"
+  "head-img.log"
+  "/home/osabio/tex/templates/head-img.log"
+  "/home/osabio/tex/templates/head-img.pdf"

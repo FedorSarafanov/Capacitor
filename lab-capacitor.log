@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.10.8)  19 OCT 2017 19:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.10.8)  19 OCT 2017 20:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -31,9 +31,8 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
-)
-(/home/osabio/tex/templates/head.tex (/home/osabio/tex/templates/head-img.tex
-(/usr/share/texmf-dist/tex/latex/cmap/cmap.sty
+) (./templates/head.tex
+(./templates/head-img.tex (/usr/share/texmf-dist/tex/latex/cmap/cmap.sty
 Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
 )
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
@@ -847,7 +846,7 @@ babel.code.tex
 File: tikzlibrarybabel.code.tex 2013/06/24 v3.0.1a (rcs-revision 1.1)
 )
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.units.code
-.tex) (/home/osabio/tex/templates/tikz_line-annotation.tex)
+.tex) (./templates/tikz_line-annotation.tex)
 (/usr/share/texmf-dist/tex/latex/circuitikz/circuitikz.sty
 Package: circuitikz 2017/05/28{} The CircuiTikz circuit drawing package version
  0.8.3
@@ -921,8 +920,7 @@ File: switch.def 2017/06/29 3.12 Babel switching mechanism
 Language: russianb 2017/01/12 1.3i Russian support for the Babel system
 Package babel Info: Making " an active character on input line 111.
 )))
-(/home/osabio/tex/templates/math_left-of-equation.tex)
-(/home/osabio/tex/templates/lab_colontitle.tex)
+(./templates/math_left-of-equation.tex) (./templates/lab_colontitle.tex)
 (/usr/share/texmf-dist/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
 \beforeepigraphskip=\skip64
@@ -1033,7 +1031,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.15}).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/home/osabio/tex/templates/lab_title-page.tex
+(./templates/lab_title-page.tex
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-4.def
 File: uni-4.def 2013/05/13 UCS: Unicode data U+0400..U+04FF
 )
@@ -1070,8 +1068,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1] [2] [3] (./lab-capacitor.aux) ) 
 Here is how much of TeX's memory you used:
  37317 strings out of 492990
- 934411 string characters out of 6138688
- 1197254 words of memory out of 5000000
+ 934202 string characters out of 6138688
+ 1197067 words of memory out of 5000000
  40121 multiletter control sequences out of 15000+600000
  17546 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
